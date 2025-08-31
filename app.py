@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-import statsmodels.api as sm
+# import statsmodels.api as sm
 import streamlit as st
 
 # ---------------------------
@@ -115,6 +115,7 @@ def build_first_last_summary(df, keys, label):
     return pd.DataFrame(out)
 
 def run_ols(y, X, add_const=True):
+    import statsmodels.api as sm
     if add_const:
         X = sm.add_constant(X, has_constant='add')
     model = sm.OLS(y, X, missing='drop')
